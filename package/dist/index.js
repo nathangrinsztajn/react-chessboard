@@ -10540,7 +10540,7 @@ function Board() {
         pointerEvents: 'none',
         zIndex: '10'
       },
-      children: arrows.map(arrow => {
+      children: arrows.map((arrow, i) => {
         const from = getRelativeCoords(boardOrientation, boardWidth, arrow[0]);
         const to = getRelativeCoords(boardOrientation, boardWidth, arrow[1]);
         return /*#__PURE__*/jsxRuntime.jsxs(React.Fragment, {
@@ -10555,7 +10555,8 @@ function Board() {
               children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
                 points: "0 0, 2 1.25, 0 2.5",
                 style: {
-                  fill: customArrowColor
+                  // if customArrowColor is a list of colors, then use the color at the index of the arrow
+                  fill: customArrowColor instanceof Array ? customArrowColor[i] : customArrowColor
                 }
               })
             })
@@ -10565,7 +10566,7 @@ function Board() {
             x2: to.x,
             y2: to.y,
             style: {
-              stroke: customArrowColor,
+              stroke: customArrowColor instanceof Array ? customArrowColor[i] : customArrowColor,
               strokeWidth: boardWidth / 36
             },
             markerEnd: "url(#arrowhead)"
