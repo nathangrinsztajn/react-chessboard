@@ -10299,7 +10299,6 @@ function Square({
     onDragEnter: () => onDragOverSquare(square),
     onClick: () => {
       onSquareClick(square);
-      clearArrows();
     },
     onContextMenu: e => {
       e.preventDefault();

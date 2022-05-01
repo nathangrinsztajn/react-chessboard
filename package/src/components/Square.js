@@ -3,6 +3,8 @@ import { useDrop } from 'react-dnd';
 
 import { useChessboard } from '../context/chessboard-context';
 
+const CLEAR_ARROWS_ON_CLICK = false;
+
 export function Square({ square, squareColor, setSquares, squareHasPremove, children }) {
   const squareRef = useRef();
   const {
@@ -69,7 +71,7 @@ export function Square({ square, squareColor, setSquares, squareHasPremove, chil
       onDragEnter={() => onDragOverSquare(square)}
       onClick={() => {
         onSquareClick(square);
-        clearArrows();
+        if (CLEAR_ARROWS_ON_CLICK) clearArrows();
       }}
       onContextMenu={(e) => {
         e.preventDefault();
