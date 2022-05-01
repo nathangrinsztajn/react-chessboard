@@ -10542,7 +10542,7 @@ function Board() {
         return /*#__PURE__*/jsxs(Fragment$1, {
           children: [/*#__PURE__*/jsx("defs", {
             children: /*#__PURE__*/jsx("marker", {
-              id: "arrowhead" + i,
+              id: 'arrowhead' + i,
               markerWidth: "2",
               markerHeight: "2.5",
               refX: "0",
@@ -10551,20 +10551,20 @@ function Board() {
               children: /*#__PURE__*/jsx("polygon", {
                 points: "0 0, 2 1.25, 0 2.5",
                 style: {
-                  fill: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor
+                  fill: typeof customArrowColor === 'object' ? customArrowColor[i] : customArrowColor
                 }
               })
             })
           }), /*#__PURE__*/jsx("line", {
             x1: from.x,
             y1: from.y,
-            x2: to.x - v.x,
-            y2: to.y - v.y,
+            x2: to.x - boardWidth / 8 * v.x * 0.4,
+            y2: to.y - boardWidth / 8 * v.y * 0.4,
             style: {
-              stroke: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor,
+              stroke: typeof customArrowColor === 'object' ? customArrowColor[i] : customArrowColor,
               strokeWidth: boardWidth / 36
             },
-            markerEnd: "url(#arrowhead" + i + ")"
+            markerEnd: 'url(#arrowhead' + i + ')'
           })]
         }, `${arrow[0]}-${arrow[1]}`);
       })
