@@ -10538,7 +10538,7 @@ function Board() {
         return /*#__PURE__*/jsxs(Fragment$1, {
           children: [/*#__PURE__*/jsx("defs", {
             children: /*#__PURE__*/jsx("marker", {
-              id: "url(#arrowhead" + i + ")",
+              id: "arrowhead" + i,
               markerWidth: "2",
               markerHeight: "2.5",
               refX: "1.25",

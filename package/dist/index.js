@@ -10546,7 +10546,7 @@ function Board() {
         return /*#__PURE__*/jsxRuntime.jsxs(React.Fragment, {
           children: [/*#__PURE__*/jsxRuntime.jsx("defs", {
             children: /*#__PURE__*/jsxRuntime.jsx("marker", {
-              id: "url(#arrowhead" + i + ")",
+              id: "arrowhead" + i,
               markerWidth: "2",
               markerHeight: "2.5",
               refX: "1.25",
