@@ -10545,7 +10545,7 @@ function Board() {
               id: "arrowhead" + i,
               markerWidth: "2",
               markerHeight: "2.5",
-              refX: "1.25",
+              refX: "0",
               refY: "1.25",
               orient: "auto",
               children: /*#__PURE__*/jsx("polygon", {
