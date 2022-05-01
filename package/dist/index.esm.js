@@ -10291,7 +10291,6 @@ function Square({
     onDragEnter: () => onDragOverSquare(square),
     onClick: () => {
       onSquareClick(square);
-      clearArrows();
     },
     onContextMenu: e => {
       e.preventDefault();
@@ -10551,7 +10550,7 @@ function Board() {
               children: /*#__PURE__*/jsx("polygon", {
                 points: "0 0, 2 1.25, 0 2.5",
                 style: {
-                  fill: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor
+                  fill: typeof customArrowColor === 'object' ? customArrowColor[i] : customArrowColor
                 }
               })
             })
@@ -10561,7 +10560,7 @@ function Board() {
             x2: to.x - v.x,
             y2: to.y - v.y,
             style: {
-              stroke: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor,
+              stroke: typeof customArrowColor === 'object' ? customArrowColor[i] : customArrowColor,
               strokeWidth: boardWidth / 36
             },
             markerEnd: "url(#arrowhead" + i + ")"
