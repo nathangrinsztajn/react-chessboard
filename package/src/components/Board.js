@@ -71,7 +71,7 @@ export function Board() {
           return (
             <Fragment key={`${arrow[0]}-${arrow[1]}`}>
               <defs>
-                <marker id="arrowhead" markerWidth="2" markerHeight="2.5" refX="1.25" refY="1.25" orient="auto">
+                <marker id={"arrowhead" + i} markerWidth="2" markerHeight="2.5" refX="1.25" refY="1.25" orient="auto">
                   <polygon points="0 0, 2 1.25, 0 2.5" style={{ fill: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor }} />
                 </marker>
               </defs>
@@ -81,7 +81,7 @@ export function Board() {
                 x2={to.x}
                 y2={to.y}
                 style={{ stroke: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor, strokeWidth: boardWidth / 36 }}
-                markerEnd="url(#arrowhead)"
+                markerEnd={"url(#arrowhead " + i + ")"}
               />
             </Fragment>
           );
