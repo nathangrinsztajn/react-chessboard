@@ -10535,6 +10535,10 @@ function Board() {
       children: arrows.map((arrow, i) => {
         const from = getRelativeCoords(boardOrientation, boardWidth, arrow[0]);
         const to = getRelativeCoords(boardOrientation, boardWidth, arrow[1]);
+        const v = {
+          x: (to.x - from.x) / Math.sqrt((to.x - from.x) ** 2 + (to.y - from.y) ** 2),
+          y: (to.y - from.y) / Math.sqrt((to.x - from.x) ** 2 + (to.y - from.y) ** 2)
+        };
         return /*#__PURE__*/jsxs(Fragment$1, {
           children: [/*#__PURE__*/jsx("defs", {
             children: /*#__PURE__*/jsx("marker", {
@@ -10554,8 +10558,8 @@ function Board() {
           }), /*#__PURE__*/jsx("line", {
             x1: from.x,
             y1: from.y,
-            x2: to.x,
-            y2: to.y,
+            x2: to.x - v.x,
+            y2: to.y - v.y,
             style: {
               stroke: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor,
               strokeWidth: boardWidth / 36
