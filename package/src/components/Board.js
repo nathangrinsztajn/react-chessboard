@@ -81,7 +81,7 @@ export function Board() {
                 x2={to.x}
                 y2={to.y}
                 style={{ stroke: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor, strokeWidth: boardWidth / 36 }}
-                markerEnd={"url(#arrowhead " + i + ")"}
+                markerEnd={"url(#arrowhead" + i + ")"}
               />
             </Fragment>
           );
