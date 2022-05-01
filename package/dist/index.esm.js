@@ -10532,7 +10532,7 @@ function Board() {
         pointerEvents: 'none',
         zIndex: '10'
       },
-      children: arrows.map(arrow => {
+      children: arrows.map((arrow, i) => {
         const from = getRelativeCoords(boardOrientation, boardWidth, arrow[0]);
         const to = getRelativeCoords(boardOrientation, boardWidth, arrow[1]);
         return /*#__PURE__*/jsxs(Fragment$1, {
@@ -10547,7 +10547,7 @@ function Board() {
               children: /*#__PURE__*/jsx("polygon", {
                 points: "0 0, 2 1.25, 0 2.5",
                 style: {
-                  fill: customArrowColor
+                  fill: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor
                 }
               })
             })
@@ -10557,7 +10557,7 @@ function Board() {
             x2: to.x,
             y2: to.y,
             style: {
-              stroke: customArrowColor,
+              stroke: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor,
               strokeWidth: boardWidth / 36
             },
             markerEnd: "url(#arrowhead)"
