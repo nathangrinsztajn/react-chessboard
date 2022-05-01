@@ -10566,7 +10566,7 @@ function Board() {
             x2: to.x,
             y2: to.y,
             style: {
-              stroke: customArrowColor instanceof Array ? customArrowColor[i] : customArrowColor,
+              stroke: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor,
               strokeWidth: boardWidth / 36
             },
             markerEnd: "url(#arrowhead)"
