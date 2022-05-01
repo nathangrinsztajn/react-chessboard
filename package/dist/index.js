@@ -10556,7 +10556,7 @@ function Board() {
                 points: "0 0, 2 1.25, 0 2.5",
                 style: {
                   // if customArrowColor is a list of colors, then use the color at the index of the arrow
-                  fill: customArrowColor instanceof Array ? customArrowColor[i] : customArrowColor
+                  fill: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor
                 }
               })
             })
