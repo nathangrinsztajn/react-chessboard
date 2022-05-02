@@ -129,6 +129,10 @@ export interface ChessBoardProps {
    */
   customArrowColor?: string | string[];
   /**
+   * The width of one or several arrows, in percentage of board width.
+   */
+  customArrowWidth?: number | number[];
+  /**
    * Custom board style object e.g. { borderRadius: '5px', boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5 '}.
    */
   customBoardStyle?: CSSProperties;

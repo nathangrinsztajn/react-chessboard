@@ -10,6 +10,7 @@ export const chessboardDefaultProps = {
   clearPremovesOnRightClick: true,
   customArrows: [],
   customArrowColor: 'rgb(255,170,0)',
+  customArrowWidth: 1 / 36,
   customBoardStyle: {},
   customDarkSquareStyle: { backgroundColor: '#B58863' },
   customDndBackend: undefined,

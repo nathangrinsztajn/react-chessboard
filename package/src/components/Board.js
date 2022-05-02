@@ -18,6 +18,7 @@ export function Board() {
     boardWidth,
     clearCurrentRightClickDown,
     customArrowColor,
+    customArrowWidth,
     showBoardNotation,
     currentPosition,
     premoves
@@ -71,12 +72,13 @@ export function Board() {
             x: (to.x - from.x) / Math.sqrt((to.x - from.x) ** 2 + (to.y - from.y) ** 2),
             y: (to.y - from.y) / Math.sqrt((to.x - from.x) ** 2 + (to.y - from.y) ** 2)
           };
-
+          const color = typeof customArrowColor === 'object' ? customArrowColor[i] : customArrowColor;
+          const width = boardWidth * (typeof customArrowWidth === 'object' ? customArrowWidth[i] : customArrowWidth);
           return (
             <Fragment key={`${arrow[0]}-${arrow[1]}`}>
               <defs>
                 <marker id={'arrowhead' + i} markerWidth="2" markerHeight="2.5" refX="0" refY="1.25" orient="auto">
-                  <polygon points="0 0, 2 1.25, 0 2.5" style={{ fill: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor }} />
+                  <polygon points="0 0, 2 1.25, 0 2.5" style={{ fill: color }} />
                 </marker>
               </defs>
               <line
@@ -84,7 +86,7 @@ export function Board() {
                 y1={from.y}
                 x2={to.x - boardWidth / 8 * v.x * 0.4}
                 y2={to.y - boardWidth / 8 * v.y * 0.4}
-                style={{ stroke: (typeof customArrowColor === 'object') ? customArrowColor[i] : customArrowColor, strokeWidth: boardWidth / 36 }}
+                style={{ stroke: color, strokeWidth: width }}
                 markerEnd={'url(#arrowhead' + i + ')'}
               />
             </Fragment>

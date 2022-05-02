@@ -8791,6 +8791,7 @@ const chessboardDefaultProps = {
   clearPremovesOnRightClick: true,
   customArrows: [],
   customArrowColor: 'rgb(255,170,0)',
+  customArrowWidth: 1 / 36,
   customBoardStyle: {},
   customDarkSquareStyle: {
     backgroundColor: '#B58863'
@@ -9656,6 +9657,7 @@ const ChessboardProvider = /*#__PURE__*/React.forwardRef(({
   clearPremovesOnRightClick,
   customArrows,
   customArrowColor,
+  customArrowWidth,
   customBoardStyle,
   customDarkSquareStyle,
   customDropSquareStyle,
@@ -9912,6 +9914,7 @@ const ChessboardProvider = /*#__PURE__*/React.forwardRef(({
       boardOrientation,
       boardWidth,
       customArrowColor,
+      customArrowWidth,
       customBoardStyle,
       customDarkSquareStyle,
       customDropSquareStyle,
@@ -10479,6 +10482,7 @@ function Board() {
     boardWidth,
     clearCurrentRightClickDown,
     customArrowColor,
+    customArrowWidth,
     showBoardNotation,
     currentPosition,
     premoves
@@ -10546,6 +10550,8 @@ function Board() {
           x: (to.x - from.x) / Math.sqrt((to.x - from.x) ** 2 + (to.y - from.y) ** 2),
           y: (to.y - from.y) / Math.sqrt((to.x - from.x) ** 2 + (to.y - from.y) ** 2)
         };
+        const color = typeof customArrowColor === 'object' ? customArrowColor[i] : customArrowColor;
+        const width = boardWidth * (typeof customArrowWidth === 'object' ? customArrowWidth[i] : customArrowWidth);
         return /*#__PURE__*/jsxRuntime.jsxs(React.Fragment, {
           children: [/*#__PURE__*/jsxRuntime.jsx("defs", {
             children: /*#__PURE__*/jsxRuntime.jsx("marker", {
@@ -10558,7 +10564,7 @@ function Board() {
               children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
                 points: "0 0, 2 1.25, 0 2.5",
                 style: {
-                  fill: typeof customArrowColor === 'object' ? customArrowColor[i] : customArrowColor
+                  fill: color
                 }
               })
             })
@@ -10568,8 +10574,8 @@ function Board() {
             x2: to.x - boardWidth / 8 * v.x * 0.4,
             y2: to.y - boardWidth / 8 * v.y * 0.4,
             style: {
-              stroke: typeof customArrowColor === 'object' ? customArrowColor[i] : customArrowColor,
-              strokeWidth: boardWidth / 36
+              stroke: color,
+              strokeWidth: width
             },
             markerEnd: 'url(#arrowhead' + i + ')'
           })]
